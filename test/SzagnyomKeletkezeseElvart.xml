@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<snapshot>
+	<mapHeight>5</mapHeight>
+	<mapWidth>5</mapWidth>
+	
+	<ant>
+		<posX>3</posX>
+		<posY>0</posY>
+		<hasFood>false</hasFood>
+		<route></route>
+	</ant>
+	<odor>
+		<posX>2</posX>
+		<posY>0</posY>
+		<power>7</power>
+	</odor>
+	<odor>
+		<posX>2</posX>
+		<posY>1</posY>
+		<power>6</power>
+	</odor>
+	<odor>
+		<posX>3</posX>
+		<posY>0</posY>
+		<power>8</power>
+	</odor>
+</snapshot>

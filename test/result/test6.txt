@@ -1,0 +1,57 @@
+Test started (test\result\test6.txt)!
+Snapshot loaded (test\SzagkovetesSnapshot.xml)!
+
+Printing the current state of the map at 0 round(s)
+>     <
+> h   <
+>     <
+>     <
+>     <
+
+Map size: 5x5
+Ant @ 1,1 hasFood=false
+
+1 rounds done!
+
+Printing the current state of the map at 1 round(s)
+>     <
+>h    <
+>     <
+>     <
+>     <
+
+Map size: 5x5
+Ant @ 0,1 hasFood=false
+Odor @ 0,1 power=6
+
+1 rounds done!
+
+Printing the current state of the map at 2 round(s)
+>     <
+>     <
+>h    <
+>     <
+>     <
+
+Map size: 5x5
+Ant @ 0,2 hasFood=false
+Odor @ 0,1 power=6
+Odor @ 0,2 power=7
+
+1 rounds done!
+
+Printing the current state of the map at 3 round(s)
+>     <
+>     <
+>     <
+>h    <
+>     <
+
+Map size: 5x5
+Ant @ 0,3 hasFood=false
+Odor @ 0,1 power=6
+Odor @ 0,2 power=7
+Odor @ 0,3 power=8
+
+Comparing failed: current differs from the target
+Test ended! Test result: failed

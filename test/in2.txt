@@ -1,0 +1,7 @@
+start test\result\test2.txt
+random off
+load test\Ä‚â€°lelemFelvetelSnapshot.xml
+do 6
+print
+equals test\Ä‚â€°lelemFelvetelElvart.xml -e -o
+end

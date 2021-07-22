@@ -1,0 +1,8 @@
+start test\result\test3.txt
+random off
+load test\SzagnyomKeletkezeseSnapshot.xml 
+do 3
+save test\test3.xml
+equals test\SzagnyomKeletkezeseElvart.xml -f -e
+print
+end

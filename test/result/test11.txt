@@ -1,0 +1,17 @@
+Test started (test\result\test11.txt)!
+Snapshot loaded (test\SzagirtoSpraySnapshot.xml)!
+3 rounds done!
+2, 2 shot with OdorNeutralizer
+4, 4 shot with OdorNeutralizer
+Comparing succeed: current matches the target
+
+Printing the current state of the map at 3 round(s)
+>     <
+>     <
+>     <
+>     <
+>     <
+
+Map size: 5x5
+
+Test ended! Test result: succeed

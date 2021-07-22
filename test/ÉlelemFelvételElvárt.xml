@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<snapshot>
+	<mapHeight>5</mapHeight>
+	<mapWidth>5</mapWidth>
+	
+	<field>
+		<type>FoodField</type>
+		<posX>3</posX>
+		<posY>3</posY>
+		<foodCount>9</foodCount>
+		<foodOriginal>10</foodOriginal>
+	</field>
+	<ant>
+		<posX>1</posX>
+		<posY>3</posY>
+		<hasFood>true</hasFood>
+		<route></route>
+	</ant>
+</snapshot>

@@ -1,0 +1,9 @@
+start test\result\test8.txt
+random off
+load test\HangyalesoSnapshot.xml
+print
+do 2
+print
+save test\test8.xml
+equals test\HangyalesoElvart.xml -o -e
+end

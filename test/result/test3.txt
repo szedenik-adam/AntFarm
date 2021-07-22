@@ -1,0 +1,19 @@
+Test started (test\result\test3.txt)!
+Snapshot loaded (test\SzagnyomKeletkezeseSnapshot.xml)!
+3 rounds done!
+Comparing failed: current differs from the target
+
+Printing the current state of the map at 3 round(s)
+>     <
+>     <
+>     <
+>     <
+>h    <
+
+Map size: 5x5
+Ant @ 0,4 hasFood=false
+Odor @ 0,2 power=6
+Odor @ 0,3 power=7
+Odor @ 0,4 power=8
+
+Test ended! Test result: failed

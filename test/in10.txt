@@ -1,0 +1,8 @@
+start test\result\test10.txt
+random off
+load test\HangyairtoSpraySnapshot.xml
+do 3
+shoot 3 3 AntKiller
+equals test\HangyairtoSprayElvart.xml -o -f -e 
+print
+end

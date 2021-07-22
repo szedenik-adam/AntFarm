@@ -1,0 +1,19 @@
+Test started (test\result\test10.txt)!
+Snapshot loaded (test\HangyairtoSpraySnapshot.xml)!
+3 rounds done!
+3, 3 shot with AntKiller
+Comparing succeed: current matches the target
+
+Printing the current state of the map at 3 round(s)
+>     <
+>     <
+>     <
+>     <
+>     <
+
+Map size: 5x5
+Odor @ 1,2 power=8
+Odor @ 2,3 power=6
+Odor @ 3,3 power=7
+
+Test ended! Test result: succeed

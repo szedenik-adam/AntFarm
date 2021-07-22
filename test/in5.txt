@@ -1,0 +1,8 @@
+start test\result\test5.txt
+random off
+load test\SzagnyomEltunesSnapshot.xml
+print
+do 5
+equals test\SzagnyomEltunesElvart.xml -a -f -e
+print
+end

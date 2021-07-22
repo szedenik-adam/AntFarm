@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<snapshot>
+	<mapHeight>5</mapHeight>
+	<mapWidth>5</mapWidth>
+	
+	<field>
+		<type>AntNestField</type>
+		<posX>1</posX>
+		<posY>1</posY>
+		<foodCount>10</foodCount>
+		<foodOriginal>10</foodOriginal>
+	</field>
+	
+</snapshot>

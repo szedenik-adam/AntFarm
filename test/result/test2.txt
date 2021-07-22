@@ -1,0 +1,7 @@
+Test started (test\result\test2.txt)!
+java.io.FileNotFoundException: H:\eclipse\workspace\AntFarm\git\test\Ä‚â€°lelemFelvetelSnapshot.xml (A rendszer nem tal�lja a megadott f�jlt)
+java.lang.NullPointerException: Cannot invoke "map.Map.nextRound()" because "test.TestRun.map" is null
+
+java.lang.NullPointerException: Cannot invoke "map.Map.getRound()" because "test.TestRun.map" is null
+java.io.FileNotFoundException: H:\eclipse\workspace\AntFarm\git\test\Ä‚â€°lelemFelvetelElvart.xml (A rendszer nem tal�lja a megadott f�jlt)
+Test ended! Test result: succeed

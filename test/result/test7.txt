@@ -1,0 +1,55 @@
+Test started (test\result\test7.txt)!
+Snapshot loaded (test\HangyaszAkadalySnapshot.xml)!
+
+Printing the current state of the map at 0 round(s)
+>     <
+>  H  <
+>  o  <
+>     <
+>     <
+
+Map size: 5x5
+AntEater @ 2,1
+ObstacleField @ 2,2
+
+1 rounds done!
+
+Printing the current state of the map at 1 round(s)
+>     <
+>   H <
+>  o  <
+>     <
+>     <
+
+Map size: 5x5
+AntEater @ 3,1
+ObstacleField @ 2,2
+
+1 rounds done!
+
+Printing the current state of the map at 2 round(s)
+>     <
+>     <
+>  o H<
+>     <
+>     <
+
+Map size: 5x5
+AntEater @ 4,2
+ObstacleField @ 2,2
+
+java.lang.NullPointerException: Cannot invoke "field.Field.getFieldType()" because "<parameter1>" is null
+
+Printing the current state of the map at 3 round(s)
+>     <
+>     <
+>  o H<
+>     <
+>     <
+
+Map size: 5x5
+AntEater @ 4,2
+ObstacleField @ 2,2
+
+Comparing failed: current differs from the target
+Test ended! Test result: failed

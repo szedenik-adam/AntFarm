@@ -1,0 +1,13 @@
+start test\result\test6.txt
+random off
+load test\SzagkovetesSnapshot.xml
+print
+do 1
+print
+do 1
+print
+do 1
+print
+save test\test6.xml
+equals test\SzagkovetesElvart.xml -f -e -o
+end

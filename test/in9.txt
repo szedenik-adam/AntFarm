@@ -1,0 +1,12 @@
+start test\result\test9.txt
+random off
+load test\AkadalykikerulesSnapshot.xml
+print
+do 1
+print
+do 1
+print
+do 1
+print
+equals test\AkadalykikerulesElvart.xml -o -e
+end

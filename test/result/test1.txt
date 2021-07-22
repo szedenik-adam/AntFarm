@@ -1,0 +1,18 @@
+Test started (test\result\test1.txt)!
+Snapshot loaded (test\HangyaKibocsajtasSnapshot.xml)!
+5 rounds done!
+Comparing succeed: current matches the target
+
+Printing the current state of the map at 5 round(s)
+>     <
+> A   <
+>     <
+>     <
+>     <
+
+Map size: 5x5
+Ant @ 1,1 hasFood=false
+Odor @ 1,1 power=10
+AntNestField @ 1,1
+
+Test ended! Test result: succeed

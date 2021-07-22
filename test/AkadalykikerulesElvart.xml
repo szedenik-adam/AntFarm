@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<snapshot>
+	<mapHeight>5</mapHeight>
+	<mapWidth>5</mapWidth>
+	
+	<field>
+		<type>ObstacleField</type>
+		<posX>4</posX>
+		<posY>3</posY>
+	</field>
+	
+	<ant>
+		<posX>4</posX>
+		<posY>2</posY>
+		<hasFood>false</hasFood>
+		<route></route>
+	</ant>
+</snapshot>

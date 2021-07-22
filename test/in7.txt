@@ -1,0 +1,12 @@
+start test\result\test7.txt
+random off
+load test\HangyaszAkadalySnapshot.xml
+print
+do 1
+print
+do 1
+print
+do 1
+print
+equals test\HangyaszAkadalyElvart.xml -o -a
+end

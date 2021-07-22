@@ -1,0 +1,25 @@
+Test started (test\result\test5.txt)!
+Snapshot loaded (test\SzagnyomEltunesSnapshot.xml)!
+
+Printing the current state of the map at 0 round(s)
+>     <
+>     <
+>     <
+>     <
+>     <
+
+Map size: 5x5
+
+5 rounds done!
+Comparing succeed: current matches the target
+
+Printing the current state of the map at 5 round(s)
+>     <
+>     <
+>     <
+>     <
+>     <
+
+Map size: 5x5
+
+Test ended! Test result: succeed

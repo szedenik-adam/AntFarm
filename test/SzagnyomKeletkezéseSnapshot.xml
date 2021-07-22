@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<snapshot>
+	<mapHeight>5</mapHeight>
+	<mapWidth>5</mapWidth>
+	
+	<ant>
+		<posX>1</posX>
+		<posY>1</posY>
+		<hasFood>false</hasFood>
+		<route>1 2 1</route>
+	</ant>
+</snapshot>

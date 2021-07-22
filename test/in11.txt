@@ -1,0 +1,10 @@
+start test\result\test11.txt
+random off
+load test\SzagirtoSpraySnapshot.xml
+do 3
+shoot 2 2 OdorNeutralizer
+shoot 4 4 OdorNeutralizer
+save test\test11.xml
+equals test\SzagirtoSprayElvart.xml -a -f -e
+print
+end
