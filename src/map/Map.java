@@ -19,7 +19,7 @@ import view.ViewBase;
  *A jatekter alapjat kepezo osztaly
  */
 public class Map {
-	
+
 	/**
  	*A jatekteret alkot� objektumok
  	*/
@@ -27,7 +27,7 @@ public class Map {
 	private AntKillerSpray antKiller;		//Hangya irto spray
 	private AntEater antEater;			//Hangyasz sun
 	private Field fields[][];			//Mezok matrixa
-	private ArrayList<AntNestField> antNests;	//Hangyabolyok listaja			
+	private ArrayList<AntNestField> antNests;	//Hangyabolyok listaja
 	private int n;					//mtx egyik parametere
 	private int m;					//mtx masik parametere
 	private ArrayList<Field> fieldsWithAnts;
@@ -36,50 +36,50 @@ public class Map {
 	private ViewBase[][] views = null;
 	private int foodFieldCount = -1;
 	private ArrayList<Field> fieldsWithFood;
-	
+
 	public static Map map;//global map (only for debug!!)
 	public static boolean random = true; //globalis valtozo, erteke jelzi hogy a rendszer tartalmaz-e random elemeket vagy determinisztikusan mukodik
 	public static int foodfieldtotal=4;
-	
+
 	public void registerAsFieldWithAnt(Field f)
 	{
 		if (!fieldsWithAnts.contains(f)) fieldsWithAnts.add(f);
 	}
-	
+
 	public void unregisterAsFieldWithAnt(Field f)
 	{
 		if (fieldsWithAnts.contains(f)) fieldsWithAnts.remove(f);
 	}
-	
-	
+
+
 	/**
  	*A Map konstruktora, valtozok beallitasa, palya beolvasasa fajlbol
  	*
  	*/
 	public Map(int _n, int _m, boolean clear)
-	{		
-	
+	{
+
 		System.out.println("Map::ctor");
 		n = _n;
 		m = _m;
-		
+
 		fields = new Field[n][m];
-		
+
 		r = Rand.init();//123558);
 		map = this;
-		
+
 		fieldsWithAnts = new ArrayList<Field>();
-		
+
 		//Spray inicializalas
 		odorNeutralizer = new OdorNeutralizerSpray(5,20);	//Szagsemlegesito spray
 		antKiller = new AntKillerSpray(5,20);				//Hangyairto spray
-		
+
 		//Nem ir felul mas objektumot (csak a nullokat)
 		//if(clear==true) {
 		//  loadMapFromFile(testfile);
 		//  return;
 		//}
-		
+
 		List<FoodField> foods = null;
 		if (clear==false) {
 			generateObstacleFields(100);//r.nextInt(n));
@@ -90,18 +90,18 @@ public class Map {
 		for(int i=0;i<n;i++) for(int j=0;j<m;j++){
 			fields[i][j].setCoordinate(new FieldCoordinate(i,j));
 		}
-			
+
 		createNeighbourhoods();
 		//createOdors();
 		if (clear==false)
 			for(FoodField food: foods) Odor.UpdateFieldOdors( food ,50);
-		
+
 		antEater = new AntEater(this);
 		if (Map.random)
 			antEater.setPosition(fields[0][0]);
-		
+
 		antNests = new ArrayList<AntNestField>();
-		
+
 		if (clear==false)
 			for (int i = 0; i < antNestsCount; i++)
 			{
@@ -109,20 +109,20 @@ public class Map {
 				int w = r.nextInt(n);
 				int h = r.nextInt(m);
 				if(foods.contains(fields[w][h])){i--; continue;}//Ha kaja, akkor nem alakítja hangyabollyá
-				
+
 				fields[w][h]=ConvertField(fields[w][h],FieldType.AntNestField);
 				antNests.add((AntNestField) fields[w][h]);
 				Odor.UpdateFieldOdors(fields[w][h], 30);
-			}	
+			}
 		System.out.println("Map::ctor-finished");
-		
-		/*ViewBase.loadImg("src\\images\\grassfield.png");
+
+		/*ViewBase.loadImg("images\\grassfield.png");
 		System.out.println("ViewBase.loadImg-OK");
-		try   { BufferedImage aantEater=ImageIO.read(new File("src\\images\\anteater.png")); } 
+		try   { BufferedImage aantEater=ImageIO.read(new File("images\\anteater.png")); }
 		catch (IOException e) { e.printStackTrace(); }
 		System.out.println("antEater-image-load-OK");*/
 	}
-	
+
 
 	/**
  	*Vissza adja a palyahoz tartozo hangyasz sunt
@@ -131,12 +131,12 @@ public class Map {
 	{
 		return antEater;
 	}
-	
+
 	public boolean isGameOver()
 	{
 		return (foodFieldCount <= 0);
 	}
-	
+
 	/**
  	*Felterkepezi a jatekteret es beallitja az egyes mezok szomszedossagi listajat
  	*/
@@ -147,7 +147,7 @@ public class Map {
 			for (int j = 0; j < m ; j++)
 			{
 				Field[] nb = new Field[6];
-				
+
 				if(i%2 == 0)
 				{
 					//Páros sorokra
@@ -158,18 +158,18 @@ public class Map {
 				} else {
 					//Páratlan
 					if( (i-1 >= 0) )           nb[0] = fields[i-1][j];
-					if( (i-1 >= 0)&& (j+1 < m))nb[1] = fields[i-1][j+1];	
-					if( (i+1 < n) && (j+1 < m))nb[3] = fields[i+1][j+1];	
+					if( (i-1 >= 0)&& (j+1 < m))nb[1] = fields[i-1][j+1];
+					if( (i+1 < n) && (j+1 < m))nb[3] = fields[i+1][j+1];
 					if( (i+1 < n)  )           nb[4] = fields[i+1][j];
 				}
 				if(j+1< m)   nb[2] = fields[i][j+1];
 				if(j-1>=0)   nb[5] = fields[i][j-1];
-				
+
 				fields[i][j].setNeighbours(nb);
 
 			}
 	}
-	
+
 	/**
  	*A parameterul kapott kordinatara helyez egy hangyat
  	*@param _fc
@@ -177,11 +177,11 @@ public class Map {
 	public void putAntToCoordinate(FieldCoordinate _fc)
 	{
 		Field selected = fields[_fc.getMapX()][_fc.getMapY()];
-		Ant _ant = new Ant(); 
+		Ant _ant = new Ant();
 		_ant.setPos(selected);
 		selected.EntryEvent(_ant);
 	}
-	
+
 	/**
  	*Hangyat helyez a hangybolyba
  	*@param _index
@@ -189,14 +189,14 @@ public class Map {
 	public void putAntIntoAntNest( int _index)
 	{
 		AntNestField anf = antNests.get(_index);
-		Ant ant = new Ant();		
-		anf.addAnt(ant);	
+		Ant ant = new Ant();
+		anf.addAnt(ant);
 		ant.setPos(anf);
-		
+
 		antNests.remove(_index);
 		antNests.add(_index,anf);
 	}
-	
+
 	/**
  	*A parameterul kapott koordinatara helyez egy hangyabolyt
  	*@param _fc
@@ -206,11 +206,11 @@ public class Map {
 		Field selected = fields[_fc.getMapX()][_fc.getMapY()];
 		fields[_fc.getMapX()][_fc.getMapY()] = ConvertField(selected, FieldType.AntNestField);
 		createNeighbourhoods(); //Frissitjuk a referenciakat
-		
+
 		antNests.add((AntNestField)fields[_fc.getMapX()][_fc.getMapY()]);
 
 	}
-	
+
 	/**
  	*Átvizsgalja a palyat es vissza adja az ures mezoket
  	*@return emptyFields
@@ -218,17 +218,17 @@ public class Map {
 	public ArrayList<Field> getEmptyFields()
 	{
 		ArrayList<Field> emptyFields = new ArrayList<Field>();
-		
+
 		for(int i = 0; i < n; i++)
 			for (int j = 0; j <m ;j++)
-			{				
+			{
 				if (fields[i][j].canEnter() )
 				{
 					//Az �sszes akad�lyt k�v�ve, b�rhova tehet� hangya
 					emptyFields.add(fields[i][j]);
 				}
 			}
-		
+
 		return emptyFields;
 	}
 
@@ -271,21 +271,21 @@ public class Map {
  	*/
 	private List<ObstacleField> generateObstacleFields(int count) {
 //		System.out.println("Map::generateObstacleFields()");
-		
+
 		List<ObstacleField> result= new ArrayList<ObstacleField>();
-		
+
 		for (int i = 0; i < count; i++)
 		{
 			//Generalunk random koordinatat
 			int x = r.nextInt(n);
 			int y = r.nextInt(m);
 			if(x==0 && y==0){i--; continue;}//Hangyászsünt blokkolná
-			
+
 			fields[x][y] = new ObstacleField(this);
-			
+
 			if (r.nextBoolean() == true) ((ObstacleField)fields[x][y]).setKind(ObstacleFieldType.rock);
 			else ((ObstacleField)fields[x][y]).setKind(ObstacleFieldType.water);
-			
+
 			result.add((ObstacleField)fields[x][y]);
 		}
 		return result;
@@ -295,7 +295,7 @@ public class Map {
  	*Élelemet tartalmazo mezoket hoz letre
  	*/
 	private List<FoodField> generateFoodFields(int count) {
-		
+
 		List<FoodField> result = new ArrayList<FoodField>();
 		for (int i = 0; i < count; i++)
 		{
@@ -320,13 +320,13 @@ public class Map {
 		for (int i = 0; i <n ;i++) for (int j = 0; j<m; j++)
 				if(fields[i][j]==null) fields[i][j] = new Field(this);
 	}
-	
+
 	/**
  	*Vissza adja a hangya irtó sprayt
  	*@return antKiller
  	*/
 	public AntKillerSpray getAntKillerSpray() {
-		return antKiller;	
+		return antKiller;
 	}
 
 	/**
@@ -334,7 +334,7 @@ public class Map {
  	*@return odorNeutralizer
  	*/
 	public OdorNeutralizerSpray getOdorNeutralizerSpray() {
-		return odorNeutralizer;	
+		return odorNeutralizer;
 	}
 
 
@@ -344,13 +344,13 @@ public class Map {
 	public Field ConvertField(Field aField, FieldType _ft) {
 //		System.out.println("Map::ConvertField()");
 		Field fnew=aField;
-		
+
 		if ((aField instanceof FoodField) && (_ft != FieldType.FoodField) )
 		{
 			//Elvesztünk egy food fieldet
 			foodFieldCount--;
 		}
-		
+
 		switch (_ft)
 		{
 		case AntNestField:
@@ -370,7 +370,7 @@ public class Map {
 		}
 			fnew.setNeighbours(aField.getNeighbours());
 			fnew.setCoordinate(aField.getCoordinate());
-			
+
 			//Régi szag objektum átadása:
 			fnew.setOdors(aField.getOdors());
 		    //Szagok beállítása:
@@ -384,7 +384,7 @@ public class Map {
 			*/
 			//Frissiteni kell a matrixban az uj referenciat
 			fields[aField.getCoordinate().getMapX()][aField.getCoordinate().getMapY()] = fnew;
-			
+
 			if (aField.getNeighbours() != null)
 			{
 				//szomszédok hivatkozásainak frissítése: (mert változik a referencia)
@@ -416,17 +416,17 @@ public class Map {
 		try {
 			FileReader fr = new FileReader(_fn);
 			BufferedReader br = new BufferedReader(fr);
-						
+
 			String sor = "";
 			int i = 0;
 			int j = 0;
 			while ( (sor = br.readLine()) != null)
 			{
 				String[] oszlopokEgySorban = sor.split(" ");
-				
+
 				for (String s : oszlopokEgySorban)
 				{
-					
+
 					//Sima mezo
 					if (s.equals("x"))
 					{
@@ -440,15 +440,15 @@ public class Map {
 					//Akadaly rock
 					else if (s.equals("r"))
 					{
-						fields[i][j] = new ObstacleField(this, ObstacleFieldType.rock);						
+						fields[i][j] = new ObstacleField(this, ObstacleFieldType.rock);
 					}
 					j++;
 				}
 				i++;
 				j = 0;
-			}			
+			}
 			br.close();
-			
+
 		} catch (FileNotFoundException et) {
 			et.printStackTrace();
 		}
@@ -456,9 +456,9 @@ public class Map {
 		{
 			ex.printStackTrace();
 		}
-		
+
 	}
-	
+
 	//Skeleton only method
 	/**
  	*Vissza ad egy mezot a koordinataja alapjan
@@ -472,12 +472,12 @@ public class Map {
 	public void setFieldByCoordinate(FieldCoordinate fc, Field f) {
 		fields[fc.getMapX()][fc.getMapY()] = f;
 	}
-	
+
 	//Palya sorositasa
 	public void PrintMap(PrintStream out) {
 		dumpMatrix();
 		PrintMapSmall();
-		
+
 		System.out.println();
 	}
 	public String PrintMapSmall()
@@ -486,46 +486,46 @@ public class Map {
 		for(int i=0;i<m;i++)
 		{
 		  sb.append(">");
-		  for(int j=0;j<n;j++) 
+		  for(int j=0;j<n;j++)
 		  {
-			 
+
 			  if (antEater.getPosition() == fields[j][i])
 			  {
 				  sb.append("H");
-			  }else sb.append(fields[j][i].getCharCode());	
+			  }else sb.append(fields[j][i].getCharCode());
 		  }
 		  sb.append("<\r\n");
 		}
 		return sb.toString();
 	}
-	
+
 	public void PrintFoodOdorMap(PrintStream out) {
 		for(int i=0;i<m;i++)
 		{
 		  StringBuilder sb=new StringBuilder(">");
-		  for(int j=0;j<n;j++) 
+		  for(int j=0;j<n;j++)
 		  {
-			 sb.append("["+fields[j][i].getOdors().getFoodOdor(0)+"]"); //getFoodOdor	
+			 sb.append("["+fields[j][i].getOdors().getFoodOdor(0)+"]"); //getFoodOdor
 		  }
 		  out.println(sb.toString()+"<");
 		}
-		
+
 		System.out.println();
 	}
 	public void PrintAntNestOdorMap(PrintStream out) {
 		for(int i=0;i<m;i++)
 		{
 		  StringBuilder sb=new StringBuilder(">");
-		  for(int j=0;j<n;j++) 
+		  for(int j=0;j<n;j++)
 		  {
-			 sb.append("["+fields[j][i].getOdors().getAntNestOdor(0)+"]");	
+			 sb.append("["+fields[j][i].getOdors().getAntNestOdor(0)+"]");
 		  }
 		  out.println(sb.toString()+"<");
 		}
-		
+
 		System.out.println();
 	}
-	
+
 	//Kiirja a hangyak szamat
 	public void dumpMatrix()
 	{
@@ -543,14 +543,14 @@ public class Map {
 
 	private int round=0;
 	public void nextRound() {
-		
+
 		if (Map.random && (antEater.getPosition() == null ) && (Rand.r.nextInt(5) >= 3) )
 		{
 			//Új helyre rakjuk a hangyaszt
 			antEater.setPosition(fields[0][0]);
 			antEater.setAntsEaten(0);
 		}
-		
+
 		round++;
 		for(AntNestField nest : antNests)
 		{
@@ -560,15 +560,15 @@ public class Map {
 		{
 			fieldsWithAnts.get(i).nextRound(round);
 		}
-		
+
 		antEater.move(round);
-		
+
 	}
 	public int getRound() { return round; }
-	
+
 	//Hangyasz altal hasznalt metodus, a kavics tolasara.
 	public Field pushField(Field _field, int _direction)
-	{		
+	{
 		Field nb = _field.getNeighbours()[_direction];
 		if (nb!=null)
 		{
@@ -576,7 +576,7 @@ public class Map {
 			ConvertField(nb, FieldType.ObstacleField);
 			return f;
 		}
-		
+
 		return null; //Nem tudjuk tovabb tolni, mert kitolnank a palyarol az elemet
 	}
 
@@ -585,16 +585,16 @@ public class Map {
 		for(int i=0;i<m;i++)
 		{
 		  StringBuilder sb=new StringBuilder(">");
-		  for(int j=0;j<n;j++) 
+		  for(int j=0;j<n;j++)
 		  {
-			 sb.append("["+fields[j][i].getOdors().getAntOdor(round)+"]");	
+			 sb.append("["+fields[j][i].getOdors().getAntOdor(round)+"]");
 		  }
 		  out.println(sb.toString()+"<");
 		}
-		
+
 		System.out.println();
 	}
-	
+
 	/**
 	 * Visszaadja a parameterul kapott mezo koordinatajat a palyan.
 	 * @auth=Bence
@@ -606,50 +606,50 @@ public class Map {
 					return new FieldCoordinate(i, k);
 		return null;
 	}
-	
+
 	public int getHeight() { return n; }
 	public int getWidth() { return m; }
-	
+
 	public void addAntNestField(AntNestField field) {
 		antNests.add(field);
 	}
-	
+
 	public ArrayList<Field> getFields()
 	{
 		ArrayList<Field> rfields = new ArrayList<Field>();
-		
+
 		for(int i = 0; i < n; i++)
 			for (int j = 0; j <m ;j++)
 				if (fields[i][j]!=null) rfields.add(fields[i][j]);
-						
+
 		return rfields;
-		
+
 	}
 
 	public void fireSpray(SprayEnum spraytype, Field f) {
-		
+
 		Spray spray = null;
-		
+
 		if (spraytype == SprayEnum.AntKiller)
 		{
-			spray = getAntKillerSpray();			
+			spray = getAntKillerSpray();
 		}
 		else spray = getOdorNeutralizerSpray();
-		
+
 		spray.shoot(f, this.getRound());
-		
+
 	}
 
 	public void setViewArray(ViewBase[][] views) {
-		
+
 		this.views=views;
-		
+
 		for(int i=0;i<n;i++)
 		for(int j=0;j<m;j++)
 		{
 			views[i][j]=fields[i][j].getView();
 		}
-		
+
 	}
 
 }

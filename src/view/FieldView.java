@@ -6,17 +6,17 @@ import java.awt.image.BufferedImage;
 import field.Field;
 
 public class FieldView extends ViewBase {
-	
+
 
 	//private static BufferedImage grassImg = ViewBase.resize(ViewBase.loadImg("src\\images\\grassfield.png"),(int)(ViewBase.size*2.5),(int)(ViewBase.size*2.5));
-	private static BufferedImage grassImg = ViewBase.loadImg("src\\images\\grassfield.png");
+	private static BufferedImage grassImg = ViewBase.loadImg("grassfield.png");
 
-	
+
 	public FieldView(Field f)
 	{
 		super(f);
 	}
-	
+
 	public void Render(Graphics2D g)
 	{
 		if(!(field.getAnts().size()==0 && lastrender==0))
@@ -27,7 +27,7 @@ public class FieldView extends ViewBase {
 			g.setColor(ViewBase.intToColor(odor-30, 20));
 			g.fillPolygon(this.shape);
 		}
-		else {			
+		else {
 			g.setClip(this.shape);
 			g.drawImage(grassImg, middle.x-20, middle.y-20, null);
 			g.setClip(null);
@@ -37,9 +37,9 @@ public class FieldView extends ViewBase {
 
 		//A View rarajzolja magat a grafikara
 		super.Render(g);
-			
+
 	}
-	
-	
-	
+
+
+
 }

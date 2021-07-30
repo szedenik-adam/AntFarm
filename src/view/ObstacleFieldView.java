@@ -8,16 +8,16 @@ import field.ObstacleFieldType;
 
 public class ObstacleFieldView extends ViewBase {
 
-	private static BufferedImage rockImg = ViewBase.loadImg("src\\images\\rock.png");
-	private static BufferedImage waterImg = ViewBase.loadImg("src\\images\\water2.jpg");
-	
+	private static BufferedImage rockImg = ViewBase.loadImg("rock.png");
+	private static BufferedImage waterImg = ViewBase.loadImg("water2.jpg");
+
 	public ObstacleFieldView(ObstacleField _f)
 	{
 		super(_f);
 	}
-	
+
 	@Override
-	public void Render(Graphics2D g) 
+	public void Render(Graphics2D g)
 	{
 		if(!(field.getAnts().size()==0 && lastrender==0))
 		{
@@ -32,8 +32,8 @@ public class ObstacleFieldView extends ViewBase {
 		}
 		}
 		if(field.getAnts().size()==0) lastrender++; else lastrender=-2;
-		
-		super.Render(g);	
+
+		super.Render(g);
 	}
-	
+
 }
