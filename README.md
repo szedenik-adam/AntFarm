@@ -1,5 +1,7 @@
-# AntFarm
+﻿# AntFarm
 Defend the cheeses from the ants with the help of an anteater, bugkiller and odor neutralizer sprays.
+
+![Ant Farm Gameplay](/demo.gif)
 
 ## Build
 1. Clone repository
