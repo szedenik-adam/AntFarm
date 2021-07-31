@@ -20,6 +20,14 @@ javac -encoding UTF-8 -cp src src\graphics\form.java
 ```
 java -cp src graphics.Form
 ```
+5. Optional: Make jar file
+```
+jar cvmf JarManifest.txt AntFarm.jar -C bin .
+```
+6. Optional: Run jar file
+```
+java -jar AntFarm.jar
+```
 
 ## Controls
 **Left click**: Bug killer spray on the selected tile.

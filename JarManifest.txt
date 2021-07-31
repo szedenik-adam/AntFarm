@@ -1,0 +1,4 @@
+Main-Class: org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader
+Rsrc-Class-Path: ./
+Rsrc-Main-Class: graphics.Form
+Class-Path: .

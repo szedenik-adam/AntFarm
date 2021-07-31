@@ -1,0 +1,1 @@
+jar cvmf JarManifest.txt AntFarm.jar -C bin .
